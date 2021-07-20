@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+#mkp_img{
+    height: 80%;
+    width: 90%;
+}
+
+#makeup_dt{
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
+}
+
+#heading{
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    opacity: 0.9;
+}
+#p_head{
+    text-align: center;
+    color: white;
+    opacity: 0.8;
+  
+}
+
