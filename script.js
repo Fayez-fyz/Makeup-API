@@ -2,7 +2,8 @@ async function getData() {
     try {
      const response = await fetch('https://makeup-api.herokuapp.com/api/v1/products.json');
      const data = await response.json();
-     loadData(data.slice(60,120)); 
+     loadData(data.slice(10,100)); //it will get data array of 10 to 100 only, i have used this for reduce rendering time.
+
         
     } catch (error) {
         throw console.log("FAILED",error);
