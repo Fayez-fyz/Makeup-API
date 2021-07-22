@@ -2,8 +2,7 @@ async function getData() {
     try {
      const response = await fetch('https://makeup-api.herokuapp.com/api/v1/products.json');
      const data = await response.json();
-     loadData(data.slice(10,100)); //it will get data array of 10 to 100 only, i have used this for reduce rendering time.
-
+     loadData(data); 
         
     } catch (error) {
         throw console.log("FAILED",error);
@@ -39,11 +38,11 @@ divbd2.setAttribute('id','makeup_dt')
 divbd1.append(divbd2)
 document.body.append(divbd1)
 
-//it is 
+
 function loadData(data){
 
-  //mapping all the data into the html elements
-    data.map((mkp) => {
+  //looping all the data into the html elements
+    for(i=10;i<100;i++){        // this MAKEUP API was not good it takes more time to load and this api have  more than 950 data, first 1 to 10 some images are not available so i took 10 to 100 array data only.it will get data array of 10 to 100 only, i have used this for reduce rendering time.
         var row = document.createElement('div');
         row.setAttribute('class','row pt-4')
         var col = document.createElement('div')
@@ -59,18 +58,19 @@ function loadData(data){
         var price = document.createElement('h3');
         var des  = document.createElement('p');
 
-        image.src= mkp.image_link;
+        image.src= data[i].image_link;
         image.alt="Not available"; 
-        name.innerText = (mkp.name);
-        brand.innerText = ('Brand : ' + mkp.brand);
-        price.innerText = ('Price : ' + mkp.price_sign +" " + mkp.price);
-        des.innerHTML = (mkp.description);
+        name.innerText = (data[i].name);
+        brand.innerText = ('Brand : ' + data[i].brand);
+        price.innerText = ('Price : ' + data[i].price_sign +" " + data[i].price);
+        des.innerHTML = (data[i].description);
         row.append(col);
         col.append(image);
         row.append(col_2);
         col_2.append(card_body);
         card_body.append(name,brand,price,des);
          document.getElementById("makeup_dt").append(row);
-    });
+    }
 }
+
 
